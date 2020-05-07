@@ -112,20 +112,6 @@ class Toolbox extends PureComponent<Props> {
             <View
                 pointerEvents = 'box-none'
                 style = { styles.toolbar }>
-                {
-                    _chatEnabled
-                        && <ChatButton
-                            styles = { buttonStylesBorderless }
-                            toggledStyles = {
-                                this._getChatButtonToggledStyle(toggledButtonStyles)
-                            } />
-                }
-                {
-                    !_chatEnabled
-                        && <InviteButton
-                            styles = { buttonStyles }
-                            toggledStyles = { toggledButtonStyles } />
-                }
                 <AudioMuteButton
                     styles = { buttonStyles }
                     toggledStyles = { toggledButtonStyles } />
@@ -133,9 +119,6 @@ class Toolbox extends PureComponent<Props> {
                     styles = { hangupButtonStyles } />
                 <VideoMuteButton
                     styles = { buttonStyles }
-                    toggledStyles = { toggledButtonStyles } />
-                <OverflowMenuButton
-                    styles = { buttonStylesBorderless }
                     toggledStyles = { toggledButtonStyles } />
             </View>
         );
