@@ -8,15 +8,12 @@ import { CHAT_ENABLED, getFeatureFlag } from '../../../base/flags';
 import { Container } from '../../../base/react';
 import { connect } from '../../../base/redux';
 import { StyleType } from '../../../base/styles';
-import { ChatButton } from '../../../chat';
-import { InviteButton } from '../../../invite';
 
 import { isToolboxVisible } from '../../functions';
 
 import AudioMuteButton from '../AudioMuteButton';
 import HangupButton from '../HangupButton';
 
-import OverflowMenuButton from './OverflowMenuButton';
 import styles from './styles';
 import VideoMuteButton from '../VideoMuteButton';
 
@@ -105,8 +102,8 @@ class Toolbox extends PureComponent<Props> {
      * @returns {React$Node}
      */
     _renderToolbar() {
-        const { _chatEnabled, _styles } = this.props;
-        const { buttonStyles, buttonStylesBorderless, hangupButtonStyles, toggledButtonStyles } = _styles;
+        const { _styles } = this.props;
+        const { buttonStyles, hangupButtonStyles, toggledButtonStyles } = _styles;
 
         return (
             <View

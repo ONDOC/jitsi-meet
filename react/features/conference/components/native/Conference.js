@@ -15,7 +15,6 @@ import {
 import { TestConnectionInfo } from '../../../base/testing';
 import { ConferenceNotification, isCalendarEnabled } from '../../../calendar-sync';
 import { Chat } from '../../../chat';
-import { DisplayNameLabel } from '../../../display-name';
 import { SharedDocument } from '../../../etherpad';
 import {
     FILMSTRIP_SIZE,
@@ -34,7 +33,6 @@ import {
     abstractMapStateToProps
 } from '../AbstractConference';
 import Labels from './Labels';
-import LonelyMeetingExperience from './LonelyMeetingExperience';
 import NavigationBar from './NavigationBar';
 import styles, { NAVBAR_GRADIENT_COLORS } from './styles';
 
@@ -251,7 +249,6 @@ class Conference extends AbstractConference<Props, *> {
         const {
             _connecting,
             _filmstripVisible,
-            _largeVideoParticipantId,
             _reducedUI,
             _shouldDisplayTileView,
             _toolboxVisible
@@ -312,8 +309,6 @@ class Conference extends AbstractConference<Props, *> {
                     <Labels />
 
                     <Captions onPress = { this._onClick } />
-
-                    <LonelyMeetingExperience />
 
                     {/*
                       * The Toolbox is in a stacking layer below the Filmstrip.
