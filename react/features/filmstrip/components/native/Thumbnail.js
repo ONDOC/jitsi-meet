@@ -119,7 +119,6 @@ function Thumbnail(props: Props) {
         _audioMuted: audioMuted,
         _largeVideo: largeVideo,
         _onClick,
-        _onShowRemoteVideoMenu,
         _renderDominantSpeakerIndicator: renderDominantSpeakerIndicator,
         _renderModeratorIndicator: renderModeratorIndicator,
         _styles,
@@ -139,7 +138,7 @@ function Thumbnail(props: Props) {
     return (
         <Container
             onClick = { _onClick }
-            onLongPress = { participant.local ? undefined : _onShowRemoteVideoMenu }
+            onLongPress = { undefined }
             style = { [
                 styles.thumbnail,
                 participant.pinned && !tileView
