@@ -21,6 +21,7 @@ import com.facebook.react.bridge.ReadableMap;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import android.util.Log;
 
 
 /**
@@ -31,6 +32,8 @@ class OngoingConferenceTracker {
 
     private static final String CONFERENCE_WILL_JOIN = "CONFERENCE_WILL_JOIN";
     private static final String CONFERENCE_TERMINATED = "CONFERENCE_TERMINATED";
+    private static final String PARTICIPANT_JOINED = "PARTICIPANT_JOINED";
+    private static final String PARTICIPANT_LEFT = "PARTICIPANT_LEFT";
 
     private final Collection<OngoingConferenceListener> listeners =
         Collections.synchronizedSet(new HashSet<OngoingConferenceListener>());

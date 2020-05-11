@@ -192,7 +192,6 @@ public class JitsiMeetView extends BaseReactView<JitsiMeetViewListener>
 
     /**
      * Handler for {@link ExternalAPIModule} events.
-     *
      * @param name The name of the event.
      * @param data The details/specifics of the event to send determined
      * by/associated with the specified {@code name}.

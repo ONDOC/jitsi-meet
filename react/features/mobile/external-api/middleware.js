@@ -22,6 +22,7 @@ import { MiddlewareRegistry } from '../../base/redux';
 import { ENTER_PICTURE_IN_PICTURE } from '../picture-in-picture';
 
 import { sendEvent } from './functions';
+import { PARTICIPANT_JOINED, PARTICIPANT_LEFT } from '../../base/participants';
 
 /**
  * Event which will be emitted on the native side to indicate the conference
@@ -114,6 +115,24 @@ MiddlewareRegistry.register(store => next => action => {
     case SET_ROOM:
         _maybeTriggerEarlyConferenceWillJoin(store, action);
         break;
+
+    case PARTICIPANT_JOINED:
+    case PARTICIPANT_LEFT: {
+        // code to check what keys action has
+        // const { error, ...data } = action;
+        // var keys = [];
+
+        // for (var key in data) {
+        //     if (data.hasOwnProperty(key)) {
+        //         keys.push(key);
+        //     }
+        // }
+        // const keyString = keys.join(';');
+        const participantId = action.participant.id;
+
+        sendEvent(store, type, { 'participantId': participantId });
+        break;
+    }
     }
 
     return result;

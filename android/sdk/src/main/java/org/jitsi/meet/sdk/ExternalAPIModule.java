@@ -59,7 +59,7 @@ class ExternalAPIModule
     /**
      * Dispatches an event that occurred on the JavaScript side of the SDK to
      * the specified {@link BaseReactView}'s listener.
-     *
+     * MAIN STUFF HERE
      * @param name The name of the event.
      * @param data The details/specifics of the event to send determined
      * by/associated with the specified {@code name}.
