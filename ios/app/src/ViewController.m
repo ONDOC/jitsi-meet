@@ -102,4 +102,12 @@
 }
 #endif
 
+- (void)participantLeft:(NSDictionary *)data {
+  NSLog(@"participantLeft");
+}
+
+- (void)participantJoined:(NSDictionary *)data {
+  NSLog(@"participantJoined");
+}
+
 @end
