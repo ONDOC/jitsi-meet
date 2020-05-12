@@ -4,11 +4,11 @@ import throttle from 'lodash/throttle';
 
 import type { Dispatch } from 'redux';
 
+// Ondoc: SHOW_NOTIFICATION removed
 import {
     CLEAR_NOTIFICATIONS,
     HIDE_NOTIFICATION,
-    SET_NOTIFICATIONS_ENABLED,
-    SHOW_NOTIFICATION
+    SET_NOTIFICATIONS_ENABLED
 } from './actionTypes';
 
 import { NOTIFICATION_TIMEOUT, NOTIFICATION_TYPE } from './constants';
@@ -86,8 +86,9 @@ export function showErrorNotification(props: Object) {
  * }}
  */
 export function showNotification(props: Object = {}, timeout: ?number) {
+    // Ondoc: not show any notifications
     return {
-        type: SHOW_NOTIFICATION,
+        type: CLEAR_NOTIFICATIONS,
         props,
         timeout,
         uid: window.Date.now()
