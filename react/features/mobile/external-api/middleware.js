@@ -22,7 +22,7 @@ import { MiddlewareRegistry } from '../../base/redux';
 import { ENTER_PICTURE_IN_PICTURE } from '../picture-in-picture';
 
 import { sendEvent } from './functions';
-import { PARTICIPANT_JOINED, PARTICIPANT_LEFT } from '../../base/participants';
+import { PARTICIPANT_JOINED, PARTICIPANT_LEFT, getParticipantById } from '../../base/participants';
 
 /**
  * Event which will be emitted on the native side to indicate the conference
@@ -129,8 +129,10 @@ MiddlewareRegistry.register(store => next => action => {
         // }
         // const keyString = keys.join(';');
         const participantId = action.participant.id;
+        const model = getParticipantById(store.getState(), participantId);
 
-        sendEvent(store, type, { 'participantId': participantId });
+        sendEvent(store, type, { 'participantId': participantId,
+            'participantName': model.name });
         break;
     }
     }
