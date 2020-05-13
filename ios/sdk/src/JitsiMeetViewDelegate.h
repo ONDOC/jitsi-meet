@@ -55,4 +55,16 @@
  */
 - (void)enterPictureInPicture:(NSDictionary *)data;
 
+/**
+ Ondoc event
+ Used ExternalAPI.m to get correct method name
+ */
+- (void)participantLeft:(NSDictionary *)data;
+
+/**
+ Ondoc event
+ Used ExternalAPI.m to get correct method name
+*/
+- (void)participantJoined:(NSDictionary *)data;
+
 @end
