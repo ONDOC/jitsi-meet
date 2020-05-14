@@ -33,7 +33,6 @@ import {
     abstractMapStateToProps
 } from '../AbstractConference';
 import Labels from './Labels';
-import NavigationBar from './NavigationBar';
 import styles, { NAVBAR_GRADIENT_COLORS } from './styles';
 
 import type { AbstractProps } from '../AbstractConference';
@@ -253,7 +252,7 @@ class Conference extends AbstractConference<Props, *> {
             _shouldDisplayTileView,
             _toolboxVisible
         } = this.props;
-        const showGradient = _toolboxVisible;
+        const showGradient = false;
         const applyGradientStretching = _filmstripVisible && isNarrowAspectRatio(this) && !_shouldDisplayTileView;
 
         if (_reducedUI) {
@@ -330,7 +329,6 @@ class Conference extends AbstractConference<Props, *> {
                 <SafeAreaView
                     pointerEvents = 'box-none'
                     style = { styles.navBarSafeView }>
-                    <NavigationBar />
                     { this._renderNotificationsContainer() }
                 </SafeAreaView>
 
