@@ -116,7 +116,14 @@ MiddlewareRegistry.register(store => next => action => {
         _maybeTriggerEarlyConferenceWillJoin(store, action);
         break;
 
-    case PARTICIPANT_JOINED:
+    case PARTICIPANT_JOINED: {
+        const participantId = action.participant.id;
+        const model = getParticipantById(store.getState(), participantId);
+
+        sendEvent(store, type, { 'participantId': participantId,
+            'participantName': model.name });
+        break;
+    }
     case PARTICIPANT_LEFT: {
         // code to check what keys action has
         // const { error, ...data } = action;
@@ -128,11 +135,7 @@ MiddlewareRegistry.register(store => next => action => {
         //     }
         // }
         // const keyString = keys.join(';');
-        const participantId = action.participant.id;
-        const model = getParticipantById(store.getState(), participantId);
-
-        sendEvent(store, type, { 'participantId': participantId,
-            'participantName': model.name });
+        sendEvent(store, type, { 'participantId': action.participant.id });
         break;
     }
     }
