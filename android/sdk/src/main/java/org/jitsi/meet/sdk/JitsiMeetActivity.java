@@ -217,7 +217,6 @@ public class JitsiMeetActivity extends FragmentActivity
     @Override
     public void onConferenceTerminated(Map<String, Object> data) {
         JitsiMeetLogger.i("Conference terminated: " + data);
-        finish();
     }
 
     @Override
