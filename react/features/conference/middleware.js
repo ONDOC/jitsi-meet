@@ -1,5 +1,4 @@
 // @flow
-import { notifyKickedOut } from './actions';
 import { appNavigate } from '../app';
 import {
     CONFERENCE_JOINED,
@@ -43,13 +42,8 @@ MiddlewareRegistry.register(store => next => action => {
     case KICKED_OUT: {
         const { dispatch } = store;
 
-        dispatch(notifyKickedOut(
-            action.participant,
-            () => {
-                dispatch(conferenceLeft(action.conference));
-                dispatch(appNavigate(undefined));
-            }
-        ));
+        dispatch(conferenceLeft(action.conference));
+        dispatch(appNavigate(undefined));
 
         break;
     }
